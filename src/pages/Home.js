@@ -1,8 +1,9 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Logo from "../components/Logo";
+import Navigation from "../components/Navigation";
 
-const home = () => {
+const Home = () => {
   return (
     <main
       className="w-full h-full flex flex-col first-letter:
@@ -11,9 +12,10 @@ const home = () => {
     >
       <div className="w-screen h-screen bg-gray-300 fixed -z-20" />
       <Logo />
+      <Navigation />
       <Outlet />
     </main>
   );
 };
 
-export default home;
+export default Home;

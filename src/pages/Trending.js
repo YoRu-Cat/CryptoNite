@@ -1,7 +1,7 @@
 import React from "react";
 
 const Trending = () => {
-  return <div>Trending</div>;
+  return <div></div>;
 };
 
 export default Trending;

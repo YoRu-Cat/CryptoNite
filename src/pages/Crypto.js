@@ -1,7 +1,7 @@
 import React from "react";
 
 const Crypto = () => {
-  return <div>Crypto</div>;
+  return <div></div>;
 };
 
 export default Crypto;
