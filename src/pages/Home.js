@@ -8,8 +8,8 @@ const Home = () => {
   return (
     <CryptoProvider>
       <main
-        className="w-full h-full flex flex-col first-letter:
-    content-center items-center relative text-white font-nunito
+        className="w-full h-full  flex flex-col first-letter:
+    content-center items-center relative text-white font-nunito scrollbar-thin scrollbar-webkit
     "
       >
         <div className="w-screen h-screen bg-gray-300 fixed -z-20" />
