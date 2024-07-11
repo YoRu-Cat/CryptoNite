@@ -5,7 +5,7 @@ import debounce from "lodash.debounce";
 
 const SearchInput = ({ handleSearch }) => {
   const [searchText, setSearchText] = useState("");
-  let { searchData } = useContext(CryptoContext);
+  let { searchData, setCoinSearch, setSearchData } = useContext(CryptoContext);
 
   let handleInput = (e) => {
     e.preventDefault();
@@ -15,9 +15,23 @@ const SearchInput = ({ handleSearch }) => {
     handleSearch(query);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSearch(searchText);
+  };
+
+  const selectCoin = (coin) => {
+    setCoinSearch(coin);
+    setSearchText("");
+    setSearchData();
+  };
+
   return (
     <>
-      <form className="w-96 relative flex items-center ml-7 font-nunito">
+      <form
+        className="w-96 relative flex items-center ml-7 font-nunito"
+        onSubmit={handleSubmit}
+      >
         <input
           type="text"
           name="search"
@@ -34,16 +48,35 @@ const SearchInput = ({ handleSearch }) => {
       </form>
       {searchText.length > 0 ? (
         <ul
-          className="absolute z-40 top-11 right-0 w-full h-96 
+          className="absolute z-40 top-11 right-0 w-96 h-96 
         rounded overflow-x-hidden py-2 bg-gray-200 bg-opacity-60 
         backdrop-blur-md"
         >
           {searchData ? (
             searchData.map((coin) => {
-              return <li>{coin.id}</li>;
+              return (
+                <li
+                  className="flex items-center ml-4 my-2 cursor-pointer"
+                  key={coin.id}
+                  onClick={() => selectCoin(coin.id)}
+                >
+                  <img
+                    className="w-[1.2rem] h-[1.2rem] m-2"
+                    src={coin.thumb}
+                    alt={coin.name}
+                  />
+                  <span>{coin.name}</span>
+                </li>
+              );
             })
           ) : (
-            <h2>please wait...</h2>
+            <div className="w-full h-full flex justify-center items-center">
+              <div
+                className="w-8 h-8 border-4 border-cyan rounded-full border-b-gray-200 animate-spin"
+                role="status"
+              />
+              <span className="ml-2">Searching...</span>
+            </div>
           )}
         </ul>
       ) : null}
@@ -59,9 +92,9 @@ const Search = () => {
   }, 2000);
 
   return (
-    <>
+    <div className="relative">
       <SearchInput handleSearch={debounceFunc} />
-    </>
+    </div>
   );
 };
 
