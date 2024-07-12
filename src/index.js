@@ -8,6 +8,7 @@ import Home from "./pages/Home.js";
 import Crypto from "./pages/Crypto.js";
 import Trending from "./pages/Trending.js";
 import Saved from "./pages/Saved.js";
+import CryptoDetails from "./components/CryptoDetails.js";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Crypto />,
+        children: [
+          {
+            path: ":coinId",
+            element: <CryptoDetails />,
+          },
+        ],
       },
       {
         path: "/trending",
