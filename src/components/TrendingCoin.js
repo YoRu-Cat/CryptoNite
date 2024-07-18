@@ -1,0 +1,55 @@
+import React from "react";
+
+const TrendingCoin = ({ data }) => {
+  return (
+    <div
+      className="w-[40%] bg-gray-200 mb-20 
+  last:mb-0 rounded-lg p-4 relative cursor-pointer
+  hover:bg-gray-300 hover:bg-opacity-40
+  "
+    >
+      {data ? (
+        <>
+          <h3 className="text-base flex items-center my-0.5">
+            <span className="capitalize text-gray-100 ">name :&nbsp;</span>
+            <span className="text-cyan">{data.name}</span>
+            <img
+              className="w-[1.5rem] h-[1.5rem] mx-1.5 rounded-full"
+              src={data.small}
+              alt={data.name}
+            />
+          </h3>
+          <h3 className="text-base flex items-center my-0.5">
+            <span className="capitalize text-gray-100 ">
+              market cap rank :&nbsp;
+            </span>
+            <span className="text-cyan">{data.market_cap_rank}</span>
+          </h3>
+          <h3 className="text-base flex items-center my-0.5">
+            <span className="capitalize text-gray-100 ">
+              price (in btc) :&nbsp;
+            </span>
+            <span className="text-cyan">
+              {new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "btc",
+                maximumSignificantDigits: 5,
+              }).format(data.price_btc)}
+            </span>
+          </h3>
+          <h3 className="text-base flex items-center my-0.5">
+            <span className="capitalize text-gray-100 ">score :&nbsp;</span>
+            <span className="text-cyan">{data.score}</span>
+          </h3>
+          <img
+            className="w-[35%] h-auto rounded-full absolute top-2/4 -right-12 -translate-y-2/4"
+            src={data.large}
+            alt={data.name}
+          />
+        </>
+      ) : null}
+    </div>
+  );
+};
+
+export default TrendingCoin;

@@ -5,22 +5,25 @@ import Navigation from "../components/Navigation";
 import { CryptoProvider } from "../context/CryptoContext";
 import ParticlesComponent from "../components/Particles";
 import Footer from "../components/Footer";
+import { TrendingProvider } from "../context/TrendingContext";
 
 const Home = () => {
   return (
     <CryptoProvider>
-      <ParticlesComponent id="particles" />
-      <main
-        className="w-full h-full  flex flex-col first-letter:
+      <TrendingProvider>
+        <ParticlesComponent id="particles" />
+        <main
+          className="w-full h-full  flex flex-col first-letter:
     content-center items-center relative text-white font-nunito scrollbar-none
     "
-      >
-        <div className="w-screen h-screen bg-gray-300 fixed -z-20" />
-        <Logo />
-        <Navigation />
-        <Outlet />
-        <Footer />
-      </main>
+        >
+          <div className="w-screen h-screen bg-gray-300 fixed -z-20" />
+          <Logo />
+          <Navigation />
+          <Outlet />
+          <Footer />
+        </main>
+      </TrendingProvider>
     </CryptoProvider>
   );
 };
