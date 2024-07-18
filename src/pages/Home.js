@@ -4,6 +4,7 @@ import Logo from "../components/Logo";
 import Navigation from "../components/Navigation";
 import { CryptoProvider } from "../context/CryptoContext";
 import ParticlesComponent from "../components/Particles";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
         <Logo />
         <Navigation />
         <Outlet />
+        <Footer />
       </main>
     </CryptoProvider>
   );
