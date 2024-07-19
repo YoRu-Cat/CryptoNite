@@ -55,7 +55,7 @@ const Footer = () => {
             </div>
           </nav> */}
           <span className="flex justify-center -mx-5 -my-2 capitalize">
-            made with &#9829; by yoru-cat
+            made with &#9829; by YoRu-Cat
           </span>
           <div className="flex justify-center mt-8 space-x-6">
             <a
