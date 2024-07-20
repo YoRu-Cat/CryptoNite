@@ -161,7 +161,7 @@ const TableComponent = () => {
           </div>
         )}
       </div>
-      <div className="flex items-center justify-between mt-4 capitalize h-[2rem]">
+      <div className="flex md:flex-row flex-col items-center justify-between mt-4 capitalize h-[2rem]">
         <span>
           Data provided by{" "}
           <a

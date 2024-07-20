@@ -48,20 +48,20 @@ const Saved = () => {
   const { savedData } = useContext(StorageContext);
   const { currency } = useContext(CryptoContext);
   return (
-    <section className="w-[80%] h-full flex flex-col mt-16 mb-24 relative">
-      <div className="w-full min-h-[60vh] py-8 border border-gray-100 rounded">
+    <section className="xs:w-[80%] w-[90%] h-full flex flex-col mt-16 mb-24 relative">
+      <div className="flex flex-col border border-gray-100 rounded min-h-[60vh]">
         {savedData ? (
           <table className="w-full table-auto">
             <thead className="capitalize text-base text-gray-100 font-medium border-b border-gray-100">
               <tr>
                 <th className="py-1">Asset</th>
-                <th className="py-1">Name</th>
+                <th className="py-1 sm:table-cell hidden">Name</th>
                 <th className="py-1">Price</th>
-                <th className="py-1">Total Volume</th>
-                <th className="py-1">Market Cap Change</th>
-                <th className="py-1">1H</th>
-                <th className="py-1">24H</th>
-                <th className="py-1">7D</th>
+                <th className="py-1 md:table-cell hidden">Total Volume</th>
+                <th className="py-1 sm:table-cell hidden">Market Cap Change</th>
+                <th className="py-1 lg:table-cell hidden">1H</th>
+                <th className="py-1 lg:table-cell hidden">24H</th>
+                <th className="py-1 lg:table-cell hidden">7D</th>
               </tr>
             </thead>
             <tbody>
@@ -86,7 +86,7 @@ const Saved = () => {
                           </Link>
                         </span>
                       </td>
-                      <td className="py-4">
+                      <td className="py-4 cursor-pointer sm:table-cell hidden">
                         <Link to={`/${data.id}`} className="cursor-pointer">
                           {data.name}
                         </Link>
@@ -97,12 +97,14 @@ const Saved = () => {
                           currency: currency,
                         }).format(data.current_price)}
                       </td>
-                      <td className="py-4">{data.total_volume}</td>
+                      <td className="py-4 sm:table-cell hidden">
+                        {data.total_volume}
+                      </td>
                       <td
                         className={
                           data.market_cap_change_percentage_24h > 0
-                            ? "text-green py-4"
-                            : "text-red py-4"
+                            ? "text-green py-4 md:table-cell hidden"
+                            : "text-red py-4 md:table-cell hidden"
                         }
                       >
                         {Number(data.market_cap_change_percentage_24h).toFixed(
@@ -113,8 +115,8 @@ const Saved = () => {
                       <td
                         className={
                           data.price_change_percentage_1h_in_currency > 0
-                            ? "text-green py-4"
-                            : "text-red py-4"
+                            ? "text-green py-4 lg:table-cell hidden"
+                            : "text-red py-4 lg:table-cell hidden"
                         }
                       >
                         {Number(
@@ -125,8 +127,8 @@ const Saved = () => {
                       <td
                         className={
                           data.price_change_percentage_24h_in_currency > 0
-                            ? "text-green py-4"
-                            : "text-red py-4"
+                            ? "text-green py-4 lg:table-cell hidden"
+                            : "text-red py-4 lg:table-cell hidden"
                         }
                       >
                         {Number(
@@ -137,8 +139,8 @@ const Saved = () => {
                       <td
                         className={
                           data.price_change_percentage_7d_in_currency > 0
-                            ? "text-green py-4"
-                            : "text-red py-4"
+                            ? "text-green py-4 lg:table-cell hidden"
+                            : "text-red py-4 lg:table-cell hidden"
                         }
                       >
                         {Number(

@@ -89,9 +89,9 @@ const Chart = ({ id }) => {
   return (
     <div className="w-full h-[60%]">
       <ChartComponent data={chartData} currency={currency} type={type} />
-      <div className="flex">
+      <div className="flex md:flex-nowrap flex-wrap">
         <button
-          className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
+          className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize md:mt-0 mt-2 ${
             type === "prices"
               ? "bg-cyan text-cyan"
               : "bg-gray-200 text-gray-100"
@@ -101,7 +101,7 @@ const Chart = ({ id }) => {
           Prices
         </button>
         <button
-          className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
+          className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize md:mt-0 mt-2 ${
             type === "market_caps"
               ? "bg-cyan text-cyan"
               : "bg-gray-200 text-gray-100"
@@ -111,7 +111,7 @@ const Chart = ({ id }) => {
           Market Caps
         </button>
         <button
-          className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
+          className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize md:mt-0 mt-2 ${
             type === "total_volumes"
               ? "bg-cyan text-cyan"
               : "bg-gray-200 text-gray-100"
@@ -121,7 +121,7 @@ const Chart = ({ id }) => {
           Total Volume
         </button>
         <button
-          className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
+          className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize md:mt-0 mt-2 ${
             days === 7 ? "bg-cyan text-cyan" : "bg-gray-200 text-gray-100"
           }`}
           onClick={() => setDays(7)}
@@ -129,7 +129,7 @@ const Chart = ({ id }) => {
           7d
         </button>
         <button
-          className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
+          className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize md:mt-0 mt-2 ${
             days === 14 ? "bg-cyan text-cyan" : "bg-gray-200 text-gray-100"
           }`}
           onClick={() => setDays(14)}
@@ -137,7 +137,7 @@ const Chart = ({ id }) => {
           14d
         </button>
         <button
-          className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
+          className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize md:mt-0 mt-2 ${
             days === 30 ? "bg-cyan text-cyan" : "bg-gray-200 text-gray-100"
           }`}
           onClick={() => setDays(30)}

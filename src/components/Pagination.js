@@ -17,14 +17,14 @@ const PerPage = () => {
   };
   return (
     <form
-      className="relative flex items-center font-nunito mr-12"
+      className="relative flex items-center font-nunito"
       onSubmit={handleSubmit}
     >
       <label
         htmlFor="perPage"
-        className="relative flex justify-center items-center mr-2 font-bold"
+        className="relative flex justify-center items-center"
       >
-        PerPage :{" "}
+        <span className="mr-2 lowercase">Per Page : </span>
       </label>
       <input
         type="number"
@@ -80,9 +80,9 @@ const Pagination = () => {
   };
   if (cryptoData && cryptoData.length >= perPage) {
     return (
-      <div className="flex items-center">
+      <div className="flex md:flex-row flex-col items-center md:mt-0 mt-4">
         <PerPage />
-        <ul className="flex items-center justify-end text-sm">
+        <ul className="flex items-center justify-end text-sm sm:mt-0 mt-4">
           <li className="flex items-center">
             <button className="outline-0 hover:text-cyan w-8" onClick={prev}>
               <img

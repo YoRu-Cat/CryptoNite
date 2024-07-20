@@ -6,8 +6,11 @@ import { Outlet } from "react-router-dom";
 const Trending = () => {
   const { trendData, resetTrendingResult } = useContext(TrendingContext);
   return (
-    <section className="w-[80%] h-full flex flex-col mt-16 mb-24 relative scrollbar-none">
-      <div className="flex flex-wrap justify-evenly w-full min-h-[60vh] py-8 border border-gray-100 rounded">
+    <section className="lg:w-[80%] w-[90%] h-full flex flex-col mt-16 mb-24 relative scrollbar-none">
+      <div
+        className="w-full flex lg:flex-row flex-col items-center flex-wrap justify-evenly
+        min-h-[60vh] py-8 border border-gray-100 rounded"
+      >
         {trendData &&
           trendData.map((coin) => (
             <TrendingCoin key={coin.item.coin_id} data={coin.item} />
